@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Demo$PlaceholderFragment">
+
+
+    <camera.camera360.com.demo.MySurfaceView
+        android:id="@+id/sfv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        />
+
+    <ImageButton android:id="@+id/shutter"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/btn"
+        android:background="@null"
+        />
+
+    <SeekBar android:id="@+id/seekbar_zoom"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/shutter"
+        android:layout_marginBottom="10dp"
+        />
+<ListView
+    android:id="@+id/listview"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#ffffff"
+    android:visibility="gone"></ListView>
+
+
+
+
+</RelativeLayout>

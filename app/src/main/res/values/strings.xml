@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Demo</string>
+    <string name="action_settings">Settings</string>
+    <string name="succeed">照片保存成功</string>
+    <string name="fail">照片保存失败</string>
+    <string name="resolution">分辨率</string>
+    <string name="quit">退出</string>
+    <string name="autofocus">对焦成功</string>
+    <string name="autofocus_fail">对焦失败</string>
+</resources>
