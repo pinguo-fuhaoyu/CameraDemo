@@ -13,12 +13,12 @@ import java.util.List;
 /**
  * Created by gwfuhaoyu on 14-10-21.
  */
-public class RepectAdapter extends BaseAdapter {
+public class ResolutionAdapter extends BaseAdapter {
 
     private  List<Camera.Size> mDatas;
     LayoutInflater inflater;
 
-    public RepectAdapter(Context ctx){
+    public ResolutionAdapter(Context ctx){
         inflater = LayoutInflater.from(ctx);
     }
 

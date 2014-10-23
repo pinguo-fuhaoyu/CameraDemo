@@ -3,36 +3,22 @@ package camera.camera360.com.demo;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.PopupWindow;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import java.util.List;
 
 
 public class Demo extends Activity implements  View.OnClickListener,MySurfaceView.PreviewReady,AdapterView.OnItemClickListener {
@@ -311,7 +297,7 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
     @Override
     public void onPreviewReady() {
         //
-        RepectAdapter adapter = new RepectAdapter(this);
+        ResolutionAdapter adapter = new ResolutionAdapter(this);
         adapter.setData(mSfv.getPreviewSizeList());
         mListView.setAdapter(adapter);
     }
