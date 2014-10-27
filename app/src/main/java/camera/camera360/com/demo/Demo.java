@@ -1,30 +1,26 @@
 package camera.camera360.com.demo;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
 
-public class Demo extends Activity implements  View.OnClickListener,MySurfaceView.PreviewReady,AdapterView.OnItemClickListener {
+public class Demo extends Activity implements  View.OnClickListener,AdapterView.OnItemClickListener {
     boolean isClicked = false;
     MySurfaceView mSfv;
-//    protected static final int MEMU_Reso = Menu.FIRST;
+    //    protected static final int MEMU_Reso = Menu.FIRST;
 //    protected static final int MENU_Quit = Menu.FIRST+1;
     private static final int MSG_HIDE_SEEKBAR = 100;
     private SeekBar zoomBar = null;
@@ -70,9 +66,8 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
         mSfv = (MySurfaceView)findViewById(R.id.sfv);
         mSfv.setClickable(true);
         mSfv.setOnClickListener(this);
-        mSfv.setPreviewReady(this);
 
-        //
+
         zoomBar = (SeekBar)findViewById(R.id.seekbar_zoom);
         //让mHandler携带消息
         mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR,4 * 1000);//开始，计时多少毫秒
@@ -98,8 +93,8 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
                 mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR,2 * 1000);//开始
             }
         });
-            //为快门按钮绑定长按事件
-            imageButton.setOnLongClickListener(new View.OnLongClickListener() {
+        //为快门按钮绑定长按事件
+        imageButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 //长按对焦
@@ -128,28 +123,9 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
             }
         });
 
-
-//        initRespectList();
-
-    }
-
-
-    private void initPopWindow(){
-
-        //引入窗口配置文件
-        View contentView = inflater.inflate(R.layout.popupwindow,null);
-        contentView.setBackgroundColor(Color.WHITE);
-
-        PopupWindow popupWindow = new PopupWindow(200,  WindowManager.LayoutParams.WRAP_CONTENT);
-        popupWindow.setContentView(contentView);
-
-        ListView listView = (ListView) contentView.findViewById(R.id.popuwindow);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ratios);
-        listView.setAdapter(adapter);
-        //获取焦点
-        popupWindow.setFocusable(true);
-        //锚点
-        popupWindow.showAsDropDown(zoomBar,0,0);
+        ResolutionAdapter adapter = new ResolutionAdapter(this);
+        adapter.setData(mSfv.getSupportedPreivewSizes());
+        mListView.setAdapter(adapter);
     }
 
 
@@ -212,7 +188,7 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
 
                 resetTimer();
 
-               return true;
+                return true;
             //按下加音量键时的判断语句
             case KeyEvent.KEYCODE_VOLUME_UP:
                 if(zoomBar.getVisibility() != View.VISIBLE){
@@ -256,13 +232,6 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
         return super.onKeyDown(keyCode,event);
     }
 
-    String[] ratios = new String[]{"1","11","111","1111","111111"};
-
-    private void initRespectList() {
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ratios);
-
-    }
-
     private void resetTimer(){
         //显示zoomBar之后，清空message
         mHandler.removeMessages(MSG_HIDE_SEEKBAR);
@@ -272,7 +241,6 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
 
     @Override
     public void onClick(View v) {
-        Log.i("123", "onClick()");
         //根据ID判断触发事件
         switch (v.getId()){
             //当id为sfv时，显示zoomBar
@@ -280,41 +248,19 @@ public class Demo extends Activity implements  View.OnClickListener,MySurfaceVie
                 zoomBar.setVisibility(View.VISIBLE);
                 resetTimer();
                 break;
-//            case R.id.shutter:
-//                //当id为shutter时,拍照
-//                if(!isClicked) {
-//                    mSfv.takePicture();
-//                    isClicked = true;
-//                    Toast.makeText(Demo.this,R.string.succeed,Toast.LENGTH_SHORT).show();
-//                } else {
-//                    mSfv.voerTack();
-//                    isClicked = false;
-//                }
-//                break;
         }
     }
 
-    @Override
-    public void onPreviewReady() {
-        //
-        ResolutionAdapter adapter = new ResolutionAdapter(this);
-        adapter.setData(mSfv.getPreviewSizeList());
-        mListView.setAdapter(adapter);
-    }
-
     //下面为分辨率变更
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Log.i("ooo ","onItemClick()");
-        //TODO
         Rect rect = new Rect();
         mainView.getDrawingRect(rect);
 
 //        if (0 == i) {
 //            this.surfaceChanged(null, 0, rect.width(), rect.height());
 //        } else {
-        mSfv.setPreviewSize(i - 1, rect.width(), rect.height());
+        mSfv.setPreviewSize(i, rect.width(), rect.height());
 //        }
     }
 
