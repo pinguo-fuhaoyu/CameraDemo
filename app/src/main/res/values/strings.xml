@@ -9,4 +9,6 @@
     <string name="quit">退出</string>
     <string name="autofocus">对焦成功</string>
     <string name="autofocus_fail">对焦失败</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

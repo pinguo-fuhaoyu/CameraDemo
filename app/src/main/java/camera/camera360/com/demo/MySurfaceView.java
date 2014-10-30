@@ -61,6 +61,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     private void initPreview() {
         mHolder = getHolder();
         mHolder.addCallback(this);
+
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         openCamera();
@@ -231,7 +232,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         }
         return retSize;
     }
-
+    //布局尺寸变换
     private boolean adjustSurfaceLayoutSize(Camera.Size previewSize,int availableWidth, int availableHeight) {
         float tmpLayoutHeight = previewSize.width;
         float tmpLayoutWidth = previewSize.height;
@@ -434,7 +435,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                 e.printStackTrace();
             }
         }else{
-            Log.i(LOG_TAG, "--------the phone not support zoom");
+            Log.i(LOG_TAG, "相机不支持变焦");
         }
     }
 
