@@ -22,7 +22,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-
 @SuppressLint("NewApi")
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback {
     private static final String LOG_TAG = "CameraPreviewSample";
@@ -63,7 +62,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
-       openCamera();
+        openCamera();
 
     }
 
@@ -109,8 +108,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     /**
      * 根据分辨率，动态设置预览界面的大小
      * @param index 要设置的分辨率的position
-     * @param width 当前界面布局最大的宽带
-     * @param height 当前界面布局最大的宽带
+     * @param width 当前界面布局最大的宽度
+     * @param height 当前界面布局最大的宽度
      */
     public void setPreviewSize(int index, int width, int height) {
         //停止预览之后才能设置
@@ -120,6 +119,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         Camera.Size previewSize = mPreviewSizeList.get(index);
         Camera.Size pictureSize = determinePictureSize(previewSize);
 
+        //重新赋值
         mPreviewSize = previewSize;
         mPictureSize = pictureSize;
         boolean layoutChanged = adjustSurfaceLayoutSize(previewSize, width, height);
@@ -159,12 +159,15 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             //surface已经创建，可以用来呈现预览了
             mCamera.setPreviewDisplay(mHolder);
         } catch (IOException e) {
-            //如果捕获到异常就置空
             mCamera.release();
             mCamera = null;
         }
     }
 
+    /*
+     * 布局变化的时候会进入此方法块
+     * @see android.view.SurfaceHolder.Callback#surfaceChanged(android.view.SurfaceHolder, int, int, int)
+     */
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         if(mCamera == null)
@@ -173,7 +176,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         stopPreview();
         //获取参数
         Camera.Parameters cameraParams = mCamera.getParameters();
-        //变换判断
+
+        //当手动设置预览分辨率时，因为已经setLayoutParams，mSurfaceConfiguring已经设置为true，所以不进入此判断
         if (!mSurfaceConfiguring) {
             Camera.Size previewSize = determinePreviewSize(width, height);
             Camera.Size pictureSize = determinePictureSize(previewSize);
@@ -186,6 +190,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             }
         }
 
+        //设置预览的朝向，并给camera设置最新的预览分辨率
         configureCameraParameters(cameraParams);
         mSurfaceConfiguring = false;
 
@@ -196,14 +201,17 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         }
     }
 
-    protected Camera.Size determinePreviewSize(int reqWidth, int reqHeight) {
-        int reqPreviewWidth = reqHeight;
-        int reqPreviewHeight = reqWidth;
-
-
-        float reqRatio = ((float) reqPreviewWidth) / reqPreviewHeight;
+    /**
+     * 获得最接近屏幕宽高比的预览分辨率
+     * @param reqWidth
+     * @param reqHeight
+     * @return
+     */
+    private Camera.Size determinePreviewSize(int reqWidth, int reqHeight) {
+        float reqRatio = ((float) reqWidth) / reqHeight;
         float curRatio, deltaRatio;
         float deltaRatioMin = Float.MAX_VALUE;
+
         Camera.Size retSize = null;
         for (Camera.Size size : mPreviewSizeList) {
             curRatio = ((float) size.width) / size.height;
@@ -218,14 +226,13 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         return retSize;
     }
 
-    protected Camera.Size determinePictureSize(Camera.Size previewSize) {
+    private Camera.Size determinePictureSize(Camera.Size previewSize) {
         Camera.Size retSize = null;
         for (Camera.Size size : mPictureSizeList) {
             if (size.equals(previewSize)) {
                 return size;
             }
         }
-
 
         float reqRatio = ((float) previewSize.width) / previewSize.height;
         float curRatio, deltaRatio;
@@ -243,13 +250,12 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     /**
      * 根据实际的分辨率去缩放布局
-     * @param previewSize
-     * @param availableWidth
+     * @param previewSize 实际的分辨率
+     * @param availableWidth 可获得的布局的宽
      * @param availableHeight
      * @return true，布局变化；false ，布局没变化
      */
-    private boolean adjustSurfaceLayoutSize(Camera.Size previewSize,int availableWidth,int availableHeight
-    ) {
+    private boolean adjustSurfaceLayoutSize(Camera.Size previewSize,int availableWidth,int availableHeight) {
         float tmpLayoutHeight = previewSize.width;
         float tmpLayoutWidth = previewSize.height;
 
@@ -385,12 +391,16 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             mCamera.autoFocus(null);
         }
     }
-
+    /**
+     * 拍照
+     */
     public void takePicture() {
         mCamera.takePicture(null,null,jpeg);
 
     }
-
+    /**
+     * 开始预览
+     */
     public void startPreView() {
         if (null != mCamera) {
             mCamera.startPreview();

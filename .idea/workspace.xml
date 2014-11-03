@@ -43,7 +43,87 @@
     <favorites_list name="CameraDemo" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="CameraFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/CameraFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1167" max-vertical-offset="2805">
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#CameraFragment#0;class#CameraFragment#0" expanded="false" />
+                <element signature="method#initView#0;class#CameraFragment#0" expanded="false" />
+                <element signature="method#initListener#0;class#CameraFragment#0" expanded="false" />
+                <element signature="method#onAttach#0;class#CameraFragment#0" expanded="false" />
+                <element signature="method#onDetach#0;class#CameraFragment#0" expanded="false" />
+                <element signature="method#resetTimer#0;class#CameraFragment#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySurfaceView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/MySurfaceView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="8.479197" vertical-offset="0" max-vertical-offset="6420">
+              <caret line="485" column="51" selection-start-line="485" selection-start-column="51" selection-end-line="485" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1562#1563#0" expanded="true" />
+                <element signature="e#1596#1597#0" expanded="true" />
+                <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="e#4337#4621#0" expanded="true" />
+                <element signature="e#4610#4611#0" expanded="true" />
+                <element signature="e#10956#10957#0" expanded="true" />
+                <element signature="e#10978#10979#0" expanded="true" />
+                <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#setPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="docComment;method#autoFocus#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#takePicture#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="docComment;method#getMaxZoom#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#getMaxZoom#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="docComment;method#getCurrentZoom#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#getCurrentZoom#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
+                <element signature="e#13726#15181#0" expanded="true" />
+                <element signature="e#13903#15046#0" expanded="true" />
+                <element signature="e#15031#15032#0" expanded="true" />
+                <element signature="e#15174#15175#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResolutionAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/ResolutionAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+              <folding>
+                <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Demo.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/Demo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
+              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -728,15 +808,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_demo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/CameraManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/ResolutionAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/Demo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/CameraFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/ResolutionAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/MySurfaceView.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="122" />
+    <option name="x" value="-379" />
     <option name="y" value="23" />
     <option name="width" value="1696" />
     <option name="height" value="1043" />
@@ -1220,8 +1300,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="23" width="1696" height="1043" extended-state="0" />
-    <editor active="false" />
+    <frame x="-379" y="23" width="1696" height="1043" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1230,14 +1310,14 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24550202" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21831736" sideWeight="0.5002902" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24550202" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21790724" sideWeight="0.4997098" order="7" side_tool="false" content_ui="tabs" x="76" y="448" width="1723" height="205" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21790724" sideWeight="0.4997098" order="7" side_tool="false" content_ui="tabs" x="76" y="448" width="1723" height="205" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32965758" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1246,7 +1326,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33333334" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25574365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="999" y="483" width="500" height="129" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1273,7 +1353,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1293,11 +1373,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="7380">
           <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1311,10 +1395,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1324,7 +1408,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="930">
           <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -1345,12 +1428,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4740">
           <caret line="255" column="23" selection-start-line="255" selection-start-column="23" selection-end-line="255" selection-end-column="23" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#CameraFragment#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initView#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initListener#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onAttach#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onDetach#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#resetTimer#0;class#CameraFragment#0" expanded="false" />
           </folding>
         </state>
@@ -1372,11 +1455,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="7215">
           <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1390,10 +1477,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1424,12 +1511,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3979" max-vertical-offset="4650">
           <caret line="292" column="12" selection-start-line="292" selection-start-column="12" selection-end-line="292" selection-end-column="12" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#CameraFragment#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initView#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initListener#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onAttach#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onDetach#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#resetTimer#0;class#CameraFragment#0" expanded="false" />
           </folding>
         </state>
@@ -1440,11 +1527,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2625" max-vertical-offset="7215">
           <caret line="175" column="25" selection-start-line="175" selection-start-column="25" selection-end-line="175" selection-end-column="25" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1458,10 +1549,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1481,7 +1572,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="930">
           <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -1492,12 +1582,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1230">
           <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#CameraFragment#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initView#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initListener#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onAttach#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onDetach#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#resetTimer#0;class#CameraFragment#0" expanded="false" />
           </folding>
         </state>
@@ -1518,7 +1608,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="930">
           <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -1529,12 +1618,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="1320">
           <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="48" selection-end-column="47" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#CameraFragment#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initView#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#initListener#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onAttach#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#onDetach#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#CameraFragment#0" expanded="false" />
             <element signature="method#resetTimer#0;class#CameraFragment#0" expanded="false" />
           </folding>
         </state>
@@ -1555,11 +1644,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="5910" max-vertical-offset="7065">
           <caret line="404" column="20" selection-start-line="404" selection-start-column="20" selection-end-line="404" selection-end-column="20" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1573,10 +1666,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1607,7 +1700,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="930">
           <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -1618,11 +1710,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="6082" max-vertical-offset="7200">
           <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1636,10 +1732,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1659,7 +1755,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="930">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -1670,11 +1765,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7200">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1688,10 +1787,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1711,7 +1810,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="660">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -1722,11 +1820,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="7200">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1740,10 +1842,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1763,7 +1865,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="660">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -1774,11 +1875,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="4080" max-vertical-offset="7740">
           <caret line="324" column="9" selection-start-line="324" selection-start-column="9" selection-end-line="324" selection-end-column="9" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1792,10 +1897,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1815,11 +1920,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="7695">
           <caret line="144" column="44" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1833,10 +1942,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1856,11 +1965,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="7860">
           <caret line="144" column="44" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -1874,10 +1987,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1987,16 +2100,56 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/ResolutionAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="263" max-vertical-offset="960">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/CameraFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1167" max-vertical-offset="2805">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CameraFragment#0;class#CameraFragment#0" expanded="false" />
+            <element signature="method#initView#0;class#CameraFragment#0" expanded="false" />
+            <element signature="method#initListener#0;class#CameraFragment#0" expanded="false" />
+            <element signature="method#onAttach#0;class#CameraFragment#0" expanded="false" />
+            <element signature="method#onDetach#0;class#CameraFragment#0" expanded="false" />
+            <element signature="method#resetTimer#0;class#CameraFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/MySurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32711622" vertical-offset="447" max-vertical-offset="5430">
-          <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+        <state vertical-scroll-proportion="8.479197" vertical-offset="0" max-vertical-offset="6420">
+          <caret line="485" column="51" selection-start-line="485" selection-start-column="51" selection-end-line="485" selection-end-column="51" />
           <folding>
-            <element signature="method#MySurfaceView#2;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#initPreview#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#openCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
             <element signature="docComment;method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="method#stop#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="method#changeCamera#0;class#MySurfaceView#0" expanded="false" />
+            <element signature="e#4337#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#10956#10957#0" expanded="true" />
+            <element signature="e#10978#10979#0" expanded="true" />
             <element signature="docComment;method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#stopPreview#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setOneShotPreviewCallback#0;class#MySurfaceView#0" expanded="false" />
@@ -2010,47 +2163,10 @@
             <element signature="method#isSupportZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="docComment;method#setZoom#0;class#MySurfaceView#0" expanded="false" />
             <element signature="method#setZoom#0;class#MySurfaceView#0" expanded="false" />
-            <element signature="e#13427#14882#0" expanded="true" />
-            <element signature="e#13604#14747#0" expanded="true" />
-            <element signature="e#14732#14733#0" expanded="true" />
-            <element signature="e#14875#14876#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/CameraFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4088953" vertical-offset="1268" max-vertical-offset="2445">
-          <caret line="268" column="29" selection-start-line="268" selection-start-column="29" selection-end-line="268" selection-end-column="29" />
-          <folding>
-            <element signature="method#CameraFragment#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#initView#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#initListener#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#onAttach#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#onDetach#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#CameraFragment#0" expanded="false" />
-            <element signature="method#resetTimer#0;class#CameraFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/ResolutionAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38737446" vertical-offset="0" max-vertical-offset="697">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getView#0;class#ResolutionAdapter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/camera/camera360/com/demo/Demo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.989957" vertical-offset="0" max-vertical-offset="960">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#13726#15181#0" expanded="true" />
+            <element signature="e#13903#15046#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15174#15175#0" expanded="true" />
           </folding>
         </state>
       </provider>
