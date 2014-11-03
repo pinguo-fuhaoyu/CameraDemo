@@ -1,30 +1,16 @@
 package camera.camera360.com.demo;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.SeekBar;
-import android.widget.Toast;
 
 
 public class Demo extends Activity implements  CameraFragment.OnFragmentInteractionListener {
 
-    CameraFragment cameraFragment;
-
-
+    private CameraFragment mCameraFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,36 +23,30 @@ public class Demo extends Activity implements  CameraFragment.OnFragmentInteract
         setContentView(R.layout.layout_activity);
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        cameraFragment = CameraFragment.newInstance("a","nb");
-        transaction.add(R.id.fragment_container,cameraFragment);
+        mCameraFragment = CameraFragment.newInstance();
+        transaction.add(R.id.fragment_container, mCameraFragment);
         transaction.commit();
 
     }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             //按下减音量键时的判断语句
             case KeyEvent.KEYCODE_VOLUME_DOWN:
-                cameraFragment.onVolumeDownKey();
+                mCameraFragment.onVolumeDownKey();
                 return true;
             //按下加音量键时的判断语句
             case KeyEvent.KEYCODE_VOLUME_UP:
-
-                cameraFragment.onVolumeUpKey();
-
-
+                mCameraFragment.onVolumeUpKey();
                 return true;
+            //按下后退键时的判断语句
             case KeyEvent.KEYCODE_BACK:
-
-                cameraFragment.onBackKey();
-
-
+                mCameraFragment.onBackKey();
                 return true;
-
+            //按下菜单键时的判断语句
             case KeyEvent.KEYCODE_MENU:
-               cameraFragment.onMenuKey();
+               mCameraFragment.onMenuKey();
                 return true;
         }
         return super.onKeyDown(keyCode,event);

@@ -19,100 +19,77 @@ import android.widget.Toast;
 
 
 public class CameraFragment extends Fragment implements  View.OnClickListener,AdapterView.OnItemClickListener  {
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-    LayoutInflater mInflater;
     private OnFragmentInteractionListener mListener;
-
-    boolean isClicked = false;
-
-
-    MySurfaceView mSfv;
+    private boolean mIsClicked = false;
+    private MySurfaceView mSfv;
     private static final int MSG_HIDE_SEEKBAR = 100;
-    private SeekBar zoomBar = null;
+    private SeekBar mZoomBar = null;
     private int mCurZoomValue = 1;//设置变焦的值
-    ListView mListView;
-    View mainView;
-    ImageButton imageButton;
+    private ListView mListView;
+    private View mainView;
+    private ImageButton mImageButton;
+
+    Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case MSG_HIDE_SEEKBAR:
+                    mZoomBar.setVisibility(View.GONE);
+                    break;
+            }
+        }
+    };
 
     public static CameraFragment newInstance() {
         CameraFragment fragment = new CameraFragment();
         return fragment;
     }
 
-    public static CameraFragment newInstance(String param1, String param2) {
-        CameraFragment fragment = new CameraFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
     public CameraFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
-
-
-
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mInflater = inflater;
         View view = inflater.inflate(R.layout.fragment_demo, container, false);
         initView(view);
         initListener();
-
     return view;
     }
 
     private void initView(View view) {
 
         mainView = view.findViewById(R.id.mainview);
-        imageButton = (ImageButton)view.findViewById(R.id.shutter);
+        mImageButton = (ImageButton)view.findViewById(R.id.shutter);
         mListView = (ListView)view.findViewById(R.id.listview);
         mListView.setOnItemClickListener(this);
 //        findViewById(R.id.shutter).setOnClickListener(this);
-        imageButton.setOnClickListener(this);
-
+        mImageButton.setOnClickListener(this);
         mSfv = (MySurfaceView)view.findViewById(R.id.sfv);
         mSfv.setClickable(true);
         mSfv.setOnClickListener(this);
-
-
-        zoomBar = (SeekBar)view.findViewById(R.id.seekbar_zoom);
-
+        mZoomBar = (SeekBar)view.findViewById(R.id.seekbar_zoom);
         ResolutionAdapter adapter = new ResolutionAdapter(getActivity());
         adapter.setData(mSfv.getSupportedPreivewSizes());
         mListView.setAdapter(adapter);
     }
 
-
     private void initListener() {
         //让mHandler携带消息
         mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR,4 * 1000);//开始，计时多少毫秒
         //为zoomBar绑定OnSeekBarChangeListener方法
-        zoomBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        mZoomBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 //设置zoom的值
                 mCurZoomValue = i;
                 mSfv.setZoom(i);
-
             }
 
             @Override
@@ -124,11 +101,12 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 //重新计时
-                mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR,2 * 1000);//开始
+                mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR, 2 * 1000);//开始
             }
         });
+
         //为快门按钮绑定长按事件
-        imageButton.setOnLongClickListener(new View.OnLongClickListener() {
+        mImageButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 //长按对焦
@@ -136,11 +114,12 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
                 return false;
             }
         });
+
         //为快门绑定OnTouchListener事件
-        imageButton.setOnTouchListener(new View.OnTouchListener() {
+        mImageButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()){
+                switch (motionEvent.getAction()) {
                     //按下时无反应
                     case MotionEvent.ACTION_DOWN:
                         //android framework
@@ -149,7 +128,7 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
                     //抬起时进行拍照
                     case MotionEvent.ACTION_UP:
                         mSfv.takePicture();
-                        isClicked = true;
+                        mIsClicked = true;
                         Toast.makeText(getActivity(), R.string.succeed, Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -157,33 +136,6 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
             }
         });
 
-
-    }
-    Handler mHandler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what){
-                case MSG_HIDE_SEEKBAR:
-                    zoomBar.setVisibility(View.GONE);
-                    break;
-            }
-        }
-    };
-
-
-
-
-
-
-
-
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
@@ -210,13 +162,11 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
         switch (v.getId()){
             //当id为sfv时，显示zoomBar
             case R.id.sfv:
-                zoomBar.setVisibility(View.VISIBLE);
+                mZoomBar.setVisibility(View.VISIBLE);
                 resetTimer();
                 break;
         }
     }
-
-
 
     private void resetTimer(){
         //显示zoomBar之后，清空message
@@ -238,10 +188,13 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
 //        }
     }
 
+    /**
+     * 按下音量减时减少变焦
+     */
     public void onVolumeDownKey(){
         //如果zoomBar此时是隐蔽的，则显示
-        if(zoomBar.getVisibility() != View.VISIBLE){
-            zoomBar.setVisibility(View.VISIBLE);
+        if(mZoomBar.getVisibility() != View.VISIBLE){
+            mZoomBar.setVisibility(View.VISIBLE);
         }
         //每按一次减音量键，mCurZoomValue的值-10
         //但是最小值不得小于1
@@ -254,14 +207,17 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
             mCurZoomValue = 1;
         }
         //zoomBar的值随之改变
-        zoomBar.setProgress(mCurZoomValue);
+        mZoomBar.setProgress(mCurZoomValue);
 
         resetTimer();
     }
 
+    /**
+     * 按下音量加时增加变焦
+     */
     public void onVolumeUpKey(){
-        if(zoomBar.getVisibility() != View.VISIBLE){
-            zoomBar.setVisibility(View.VISIBLE);
+        if(mZoomBar.getVisibility() != View.VISIBLE){
+            mZoomBar.setVisibility(View.VISIBLE);
         }
         //每按一次加音量键，mCurZoomValue的值+10
         //但是最大值不得超过99
@@ -274,13 +230,14 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
             mCurZoomValue = 99;
         }
         //zoomBar的值随之改变
-        zoomBar.setProgress(mCurZoomValue);
+        mZoomBar.setProgress(mCurZoomValue);
 
         resetTimer();
-
-
     }
 
+    /**
+     * 按下返回键时的处理
+     */
     public void onBackKey(){
         //点击返回键finish
         if(mListView.getVisibility() == View.VISIBLE){
@@ -291,6 +248,9 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
 
     }
 
+    /**
+     * 按下菜单键时控制菜单的显示与隐藏
+     */
     public void onMenuKey(){
         //显示分辨率更改界面
 //                initPopWindow();
@@ -301,10 +261,15 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
         }
     }
 
-
-
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(Uri uri);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //清理Handler信息
+        mHandler.removeMessages(MSG_HIDE_SEEKBAR);
+        mHandler = null;
+    }
 }

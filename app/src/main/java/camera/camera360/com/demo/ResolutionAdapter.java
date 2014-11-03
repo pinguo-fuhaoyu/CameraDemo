@@ -15,11 +15,11 @@ import java.util.List;
  */
 public class ResolutionAdapter extends BaseAdapter {
 
-    private  List<Camera.Size> mDatas;
-    LayoutInflater inflater;
+    private List<Camera.Size> mDatas;
+    private LayoutInflater mInflater;
 
     public ResolutionAdapter(Context ctx){
-        inflater = LayoutInflater.from(ctx);
+        mInflater = LayoutInflater.from(ctx);
     }
 
     /**
@@ -47,7 +47,7 @@ public class ResolutionAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        TextView textView = (TextView) inflater.inflate(R.layout.resolution,null);
+        TextView textView = (TextView) mInflater.inflate(R.layout.resolution,null);
         Camera.Size size =  mDatas.get(i);
         String repect = size.width +" x " + size.height;
         textView.setText(repect);

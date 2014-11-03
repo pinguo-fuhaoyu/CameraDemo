@@ -16,7 +16,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -29,17 +28,17 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     private static final String LOG_TAG = "CameraPreviewSample";
     private static final String CAMERA_PARAM_ORIENTATION = "orientation";
     private static final String CAMERA_PARAM_PORTRAIT = "portrait";
-    private int maxZoomValue = 0;
+    private int mMaxZoomValue = 0;
     private SurfaceHolder mHolder;
-    protected Camera mCamera;
+    private Camera mCamera;
     protected List<Camera.Size> mPreviewSizeList;
-    protected List<Camera.Size> mPictureSizeList;
-    protected Camera.Size mPreviewSize;
-    protected Camera.Size mPictureSize;
+    private List<Camera.Size> mPictureSizeList;
+    private Camera.Size mPreviewSize;
+    private Camera.Size mPictureSize;
     private int mCameraId = 0;
     private int mCenterPosX = -1;
     private int mCenterPosY;
-    private String filePath = "/sdcard/";
+    private String mFilePath = "/sdcard/";
 
     protected boolean mSurfaceConfiguring = false;
     private boolean mIsSupportZoom;
@@ -64,7 +63,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
-        openCamera();
+       openCamera();
 
     }
 
@@ -107,7 +106,12 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         openCamera();
     }
 
-    //预览窗口设置
+    /**
+     * 根据分辨率，动态设置预览界面的大小
+     * @param index 要设置的分辨率的position
+     * @param width 当前界面布局最大的宽带
+     * @param height 当前界面布局最大的宽带
+     */
     public void setPreviewSize(int index, int width, int height) {
         //停止预览之后才能设置
         stopPreview();
@@ -123,6 +127,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             mSurfaceConfiguring = true;
             return;
         }
+
         //分辨率变换
         configureCameraParameters(cameraParams);
         try {
@@ -154,6 +159,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             //surface已经创建，可以用来呈现预览了
             mCamera.setPreviewDisplay(mHolder);
         } catch (IOException e) {
+            //如果捕获到异常就置空
             mCamera.release();
             mCamera = null;
         }
@@ -161,6 +167,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+        if(mCamera == null)
+            return;
         //预览界面变换，先停止预览
         stopPreview();
         //获取参数
@@ -232,21 +240,30 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         }
         return retSize;
     }
-    //布局尺寸变换
-    private boolean adjustSurfaceLayoutSize(Camera.Size previewSize,int availableWidth, int availableHeight) {
+
+    /**
+     * 根据实际的分辨率去缩放布局
+     * @param previewSize
+     * @param availableWidth
+     * @param availableHeight
+     * @return true，布局变化；false ，布局没变化
+     */
+    private boolean adjustSurfaceLayoutSize(Camera.Size previewSize,int availableWidth,int availableHeight
+    ) {
         float tmpLayoutHeight = previewSize.width;
         float tmpLayoutWidth = previewSize.height;
 
         float factH, factW, fact;
         factH = availableHeight / tmpLayoutHeight;
         factW = availableWidth / tmpLayoutWidth;
+        //因为要等比例缩放，为了不超过屏幕宽度，所以宽高的比例，谁变化小，用谁的比例
         if (factH < factW) {
             fact = factH;
         } else {
             fact = factW;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.getLayoutParams();
-
+        //用上边获得的比例，去缩放实际宽高
         int layoutHeight = (int) (tmpLayoutHeight * fact);
         int layoutWidth = (int) (tmpLayoutWidth * fact);
 
@@ -258,6 +275,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                 layoutParams.topMargin = mCenterPosY - (layoutHeight / 2);
                 layoutParams.leftMargin = mCenterPosX - (layoutWidth / 2);
             }
+            //拿实际获得的宽高，设置给布局
+            //调用这个方法，会回调surfaceChanged()
             this.setLayoutParams(layoutParams);
             layoutChanged = true;
         } else {
@@ -267,12 +286,15 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         return layoutChanged;
     }
 
-
     public void setCenterPosition(int x, int y) {
         mCenterPosX = x;
         mCenterPosY = y;
     }
-    //设置角度
+
+    /**
+     * 设置预览的朝向，并给camera设置最新的分辨率
+     * @param cameraParams
+     */
     protected void configureCameraParameters(Camera.Parameters cameraParams) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.FROYO) {
             cameraParams.set(CAMERA_PARAM_ORIENTATION, CAMERA_PARAM_PORTRAIT);
@@ -369,13 +391,11 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     }
 
-
     public void startPreView() {
         if (null != mCamera) {
             mCamera.startPreview();
         }
     }
-
 
     /**
      * 得到相机的缩放程度
@@ -411,7 +431,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         if (mCamera.getParameters().isSmoothZoomSupported()){
             return false;
         }else{
-            maxZoomValue = mCamera.getParameters().getMaxZoom();
+            mMaxZoomValue = mCamera.getParameters().getMaxZoom();
             return true;
         }
     }
@@ -422,11 +442,11 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
      */
     public void setZoom(int zoomValue){
         //变换
-        zoomValue = maxZoomValue * zoomValue / 99;
-        if (mIsSupportZoom && maxZoomValue!=0 ){
+        zoomValue = mMaxZoomValue * zoomValue / 99;
+        if (mIsSupportZoom && mMaxZoomValue !=0 ){
             try{
                 Camera.Parameters params = mCamera.getParameters();
-                if(zoomValue > maxZoomValue)
+                if(zoomValue > mMaxZoomValue)
                     return;
 
                 params.setZoom(zoomValue);
@@ -441,25 +461,33 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     private Camera.PictureCallback jpeg = new Camera.PictureCallback() {
         @Override
-        public void onPictureTaken(byte[] data, Camera camera) {
+        public void onPictureTaken(final byte[] data, Camera camera) {
             Log.d("ddd", "jpeg");
-            final  Bitmap bm = BitmapFactory.decodeByteArray(data, 0, data.length);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-
+                    //因为decodeByteArray比较耗时，所以放在线程中
+                    Bitmap bm = BitmapFactory.decodeByteArray(data, 0, data.length);
+                    BufferedOutputStream bos = null;
                     try {
                         //存储的路径
-                        String path  = filePath + "demo_" + System.currentTimeMillis() + ".jpg";
+                        String path  = mFilePath + "demo_" + System.currentTimeMillis() + ".jpg";
                         //输出流
                         File file = new File(path);
-                        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+                        bos = new BufferedOutputStream(new FileOutputStream(file));
                         bm.compress(Bitmap.CompressFormat.JPEG, 100, bos);
                         bos.flush();
                         //关闭输出流
-                        bos.close();
                     } catch (Exception e) {
                         e.printStackTrace();
+                    }finally {
+                        //保证输出流关闭
+                        if(bos != null)
+                            try {
+                                bos.close();
+                            }catch (Exception e) {
+
+                            }
                     }
                 }
             }).start();
