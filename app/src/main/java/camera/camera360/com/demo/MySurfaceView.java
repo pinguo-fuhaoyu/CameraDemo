@@ -8,6 +8,8 @@ import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.hardware.Camera.PreviewCallback;
 import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Display;
@@ -19,7 +21,6 @@ import android.widget.Toast;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 @SuppressLint("NewApi")
@@ -37,7 +38,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     private int mCameraId = 0;
     private int mCenterPosX = -1;
     private int mCenterPosY;
-    private String mFilePath = "/sdcard/";
+    public static String alumbPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "mydemo";
 
     protected boolean mSurfaceConfiguring = false;
     private boolean mIsSupportZoom;
@@ -62,11 +63,15 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
-        openCamera();
+        try {
+            openCamera();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
-    private void openCamera() {
+    private void openCamera() throws Exception{
         //判断当前手机API是不是支持的版本
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
             mCamera = Camera.open(mCameraId);
@@ -80,6 +85,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         //获得支持的照片尺寸
         mPictureSizeList = cameraParams.getSupportedPictureSizes();
         mIsSupportZoom = isSupportZoom();
+        Toast.makeText(getContext(),mIsSupportZoom?"support Zoom!":"No support Zoom!",Toast.LENGTH_SHORT).show();
 
         Camera.Parameters parameters = mCamera.getParameters();
         //相机旋转90度
@@ -102,7 +108,11 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         } else {
             mCameraId = 0;
         }
-        openCamera();
+        try {
+            openCamera();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -157,9 +167,14 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder holder) {
         try {
             //surface已经创建，可以用来呈现预览了
+            if(mCamera == null){
+                openCamera();
+            }
             mCamera.setPreviewDisplay(mHolder);
-        } catch (IOException e) {
-            mCamera.release();
+        } catch (Exception e) {
+            if(mCamera == null){
+                mCamera.release();
+            }
             mCamera = null;
         }
     }
@@ -436,14 +451,12 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     }
 
     //判断是否是支持的参数
-    public boolean isSupportZoom()
-    {
-        if (mCamera.getParameters().isSmoothZoomSupported()){
-            return false;
-        }else{
+    public boolean isSupportZoom(){
+        if (mCamera.getParameters().isZoomSupported()){
             mMaxZoomValue = mCamera.getParameters().getMaxZoom();
             return true;
         }
+        return false;
     }
 
     /**
@@ -476,18 +489,23 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    File dir = new File(alumbPath);
+                    if(!dir.exists()){
+                        dir.mkdir();
+                    }
                     //因为decodeByteArray比较耗时，所以放在线程中
                     Bitmap bm = BitmapFactory.decodeByteArray(data, 0, data.length);
                     BufferedOutputStream bos = null;
+                    String name  = "demo11_" + System.currentTimeMillis() + ".jpg";
+                    //输出流
+                    File file = new File(dir,name);
                     try {
                         //存储的路径
-                        String path  = mFilePath + "demo_" + System.currentTimeMillis() + ".jpg";
-                        //输出流
-                        File file = new File(path);
                         bos = new BufferedOutputStream(new FileOutputStream(file));
                         bm.compress(Bitmap.CompressFormat.JPEG, 100, bos);
                         bos.flush();
                         //关闭输出流
+                        MediaStore.Images.Media.insertImage(getContext().getContentResolver(), file.getPath(), name, "mydemo");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }finally {

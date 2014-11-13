@@ -1,6 +1,7 @@
 package camera.camera360.com.demo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -28,7 +30,11 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
     private ListView mListView;
     private View mainView;
     private ImageButton mImageButton;
-
+    private ImageView mAlbum;
+    public static final String NAME_SIGN = "mydemo";
+    /**
+     * 使用Handle携带信息控制变焦条的隐藏和显示
+     */
     Handler mHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -78,6 +84,8 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
         ResolutionAdapter adapter = new ResolutionAdapter(getActivity());
         adapter.setData(mSfv.getSupportedPreivewSizes());
         mListView.setAdapter(adapter);
+
+        mAlbum = (ImageView)view.findViewById(R.id.photo_imageview);
     }
 
     private void initListener() {
@@ -104,6 +112,8 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
                 mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR, 2 * 1000);//开始
             }
         });
+        //为相册绑定事件监听
+        mAlbum.setOnClickListener(this);
 
         //为快门按钮绑定长按事件
         mImageButton.setOnLongClickListener(new View.OnLongClickListener() {
@@ -165,14 +175,23 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
                 mZoomBar.setVisibility(View.VISIBLE);
                 resetTimer();
                 break;
+            case R.id.photo_imageview:
+                toAlbum();
         }
+    }
+
+    //跳转到相册
+    public void toAlbum() {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(),Album.class);
+        startActivity(intent);
     }
 
     private void resetTimer(){
         //显示zoomBar之后，清空message
         mHandler.removeMessages(MSG_HIDE_SEEKBAR);
         //重新计时
-        mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR,2 * 1000);//开始，jishi
+        mHandler.sendEmptyMessageDelayed(MSG_HIDE_SEEKBAR,2 * 1000);//开始计时
     }
 
     //下面为分辨率变更
@@ -180,12 +199,7 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Rect rect = new Rect();
         mainView.getDrawingRect(rect);
-
-//        if (0 == i) {
-//            this.surfaceChanged(null, 0, rect.width(), rect.height());
-//        } else {
         mSfv.setPreviewSize(i, rect.width(), rect.height());
-//        }
     }
 
     /**

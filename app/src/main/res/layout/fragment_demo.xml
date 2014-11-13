@@ -15,8 +15,8 @@
         />
 
     <ImageButton android:id="@+id/shutter"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
@@ -32,6 +32,18 @@
         android:layout_above="@id/shutter"
         android:layout_marginBottom="10dp"
         />
+
+    <ImageView
+        android:id="@+id/photo_imageview"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/photo_imageview"
+        android:layout_toRightOf="@+id/shutter"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="33dp"
+        android:layout_marginLeft="25dp"/>
+
+
 <ListView
     android:id="@+id/listview"
     android:layout_width="160dp"

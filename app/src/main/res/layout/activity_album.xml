@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="camera.camera360.com.demo.Album">
+
+    <TextView
+        android:id="@+id/photos_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:text="相册"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <GridView
+        android:id="@+id/photos_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="4"
+        android:layout_below="@+id/photos_title"
+        android:verticalSpacing="5dp"
+        android:layout_margin="5dp"
+        android:horizontalSpacing="5dp" />
+
+</RelativeLayout>

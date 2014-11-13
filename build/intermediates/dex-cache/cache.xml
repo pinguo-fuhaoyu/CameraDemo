@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/gwfuhaoyu/CameraDemo/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-9d755abd7fd37f83a0a5daa5422b87b66faeeec3.jar"
+        jar="/Users/gwfuhaoyu/CameraDemo/app/libs/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72"/>
+    <item
+        dex="/Users/gwfuhaoyu/CameraDemo/app/build/intermediates/pre-dexed/debug/android-support-v4-da9ed9a5ff22b3d8ad210fce6395183ac702bcf0.jar"
+        jar="/Users/gwfuhaoyu/CameraDemo/app/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="48c94ae70fa65718b382098237806a5909bb096e"/>
+
+</pre-dex-items>
