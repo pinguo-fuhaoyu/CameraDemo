@@ -54,11 +54,9 @@ public class ImagePagerFragment extends Fragment {
      * 初始化数据
      */
     private void initData() {
-
         String[] proj = {MediaStore.Images.Media._ID, MediaStore.Images.Media.DATA, MediaStore.Images.Media.TITLE};
         String selecttions = MediaStore.Images.Media.DESCRIPTION + " = ?";
         String[] selectionArgs = {CameraFragment.NAME_SIGN};
-
         mCursor = getActivity().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, proj, selecttions, selectionArgs, null);
     }
 
@@ -95,7 +93,6 @@ public class ImagePagerFragment extends Fragment {
             assert imageLayout != null;
             ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
             final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
-
 
             mCursor.moveToPosition(position);
             String path = mCursor.getString(1);

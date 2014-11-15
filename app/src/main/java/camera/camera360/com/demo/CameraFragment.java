@@ -2,12 +2,14 @@ package camera.camera360.com.demo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Toast;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import java.io.File;
 
 
 public class CameraFragment extends Fragment implements  View.OnClickListener,AdapterView.OnItemClickListener  {
@@ -32,8 +36,10 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
     private ImageButton mImageButton;
     private ImageView mAlbum;
     public static final String NAME_SIGN = "mydemo";
+
     /**
      * 使用Handle携带信息控制变焦条的隐藏和显示
+     * 使用Handle携带最后的图像显示在相册上
      */
     Handler mHandler = new Handler(){
         @Override
@@ -43,6 +49,8 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
                 case MSG_HIDE_SEEKBAR:
                     mZoomBar.setVisibility(View.GONE);
                     break;
+                case 9999:
+                ImageLoader.getInstance().displayImage((String)msg.obj,mAlbum);
             }
         }
     };
@@ -66,6 +74,7 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
         View view = inflater.inflate(R.layout.fragment_demo, container, false);
         initView(view);
         initListener();
+        initAlbum();
     return view;
     }
 
@@ -75,11 +84,11 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
         mImageButton = (ImageButton)view.findViewById(R.id.shutter);
         mListView = (ListView)view.findViewById(R.id.listview);
         mListView.setOnItemClickListener(this);
-//        findViewById(R.id.shutter).setOnClickListener(this);
         mImageButton.setOnClickListener(this);
         mSfv = (MySurfaceView)view.findViewById(R.id.sfv);
         mSfv.setClickable(true);
         mSfv.setOnClickListener(this);
+        mSfv.setUiHandler(mHandler);
         mZoomBar = (SeekBar)view.findViewById(R.id.seekbar_zoom);
         ResolutionAdapter adapter = new ResolutionAdapter(getActivity());
         adapter.setData(mSfv.getSupportedPreivewSizes());
@@ -87,6 +96,19 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
 
         mAlbum = (ImageView)view.findViewById(R.id.photo_imageview);
     }
+
+    private void initAlbum(){
+        String[] proj = {MediaStore.Images.Media._ID, MediaStore.Images.Media.DATA, MediaStore.Images.Media.TITLE};
+        String selecttions = MediaStore.Images.Media.DESCRIPTION + " = ?";
+        String[] selectionArgs = {CameraFragment.NAME_SIGN};
+        Cursor cursor = getActivity().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, proj, selecttions, selectionArgs, null);
+        cursor.moveToLast();
+        String path = cursor.getString(1);
+        File file = new File(path);
+        Uri uri = Uri.fromFile(file);
+        ImageLoader.getInstance().displayImage(uri.toString(),mAlbum);
+    }
+
 
     private void initListener() {
         //让mHandler携带消息
@@ -259,7 +281,6 @@ public class CameraFragment extends Fragment implements  View.OnClickListener,Ad
         }else{
             getActivity().finish();
         }
-
     }
 
     /**

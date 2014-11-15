@@ -20,7 +20,6 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import java.io.File;
 
-
 public class Album extends Activity {
     private GridView mPhotoView;
     private DisplayImageOptions options;
@@ -77,7 +76,6 @@ public class Album extends Activity {
      class PhotoCursorAdapter extends CursorAdapter {
             public PhotoCursorAdapter(Context context, Cursor cursor) {
                 super(context, cursor);
-
          }
 
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
@@ -88,15 +86,18 @@ public class Album extends Activity {
 
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
+            //在对性能要求不高时可以使用此方法
+            //如果对性能要求比较高，有很多图片的时候可以复用convertView来进行优化
+            //使用ViewHolder模式,减少findview次数，把find出来的view引用保存进ViewhOlder，以便下次复用
             ImageView photoView = (ImageView) view.findViewById(R.id.photos_item_imageview);
             TextView titleView = (TextView) view.findViewById(R.id.photos_item_title);
+
             String path = cursor.getString(1);
             File file = new File(path);
             Uri uri = Uri.fromFile(file);
             ImageLoader.getInstance().displayImage(uri.toString().trim(), photoView, options);
             titleView.setText(cursor.getString(2));
         }
-
     }
 
     /**

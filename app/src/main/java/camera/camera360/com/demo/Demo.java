@@ -20,7 +20,7 @@ public class Demo extends Activity implements  CameraFragment.OnFragmentInteract
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        设置全屏显示，隐藏窗口所有装饰
+        // 设置全屏显示，隐藏窗口所有装饰
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -69,7 +69,7 @@ public class Demo extends Activity implements  CameraFragment.OnFragmentInteract
                 .diskCacheFileNameGenerator(new Md5FileNameGenerator())//设置缓存文件的名字
                 .diskCacheSize(50 * 1024 * 1024) // 50 Mb
                 .tasksProcessingOrder(QueueProcessingType.LIFO)//后进先出
-                .writeDebugLogs() // Remove for release app
+                .writeDebugLogs()
                 .build();//开始构建
 
         ImageLoader.getInstance().init(config);//全局初始化此配置

@@ -9,6 +9,8 @@ import android.hardware.Camera;
 import android.hardware.Camera.PreviewCallback;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -42,7 +44,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     protected boolean mSurfaceConfiguring = false;
     private boolean mIsSupportZoom;
-
+    private Handler mHandler;
     public MySurfaceView(Context context) {
         this(context,null);
     }
@@ -57,6 +59,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         initPreview();
     }
 
+
     private void initPreview() {
         mHolder = getHolder();
         mHolder.addCallback(this);
@@ -68,7 +71,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     private void openCamera() throws Exception{
@@ -85,7 +87,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         //获得支持的照片尺寸
         mPictureSizeList = cameraParams.getSupportedPictureSizes();
         mIsSupportZoom = isSupportZoom();
-        Toast.makeText(getContext(),mIsSupportZoom?"support Zoom!":"No support Zoom!",Toast.LENGTH_SHORT).show();
 
         Camera.Parameters parameters = mCamera.getParameters();
         //相机旋转90度
@@ -356,7 +357,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         stop();
     }
 
-
     /**
      * 释放相机
      */
@@ -378,6 +378,10 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             return;
         }
         mCamera.stopPreview();
+    }
+
+    public void setUiHandler(Handler handler){
+        this.mHandler = handler;
     }
 
     public void setOneShotPreviewCallback(PreviewCallback callback) {
@@ -486,7 +490,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         @Override
         public void onPictureTaken(final byte[] data, Camera camera) {
             Log.d("ddd", "jpeg");
-            new Thread(new Runnable() {
+             new Thread() {
                 @Override
                 public void run() {
                     File dir = new File(alumbPath);
@@ -505,7 +509,13 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                         bm.compress(Bitmap.CompressFormat.JPEG, 100, bos);
                         bos.flush();
                         //关闭输出流
-                        MediaStore.Images.Media.insertImage(getContext().getContentResolver(), file.getPath(), name, "mydemo");
+                        String lastPhotoUrl = MediaStore.Images.Media.insertImage(getContext().getContentResolver(), file.getPath(), name, "mydemo");
+                        //主线程里更新界面操作的方法
+                        //使用Handler携带信息，在界面上呈现最后取得的图像
+                        Message msg = new Message();
+                        msg.what = 9999;
+                        msg.obj = lastPhotoUrl;
+                        mHandler.sendMessage(msg);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }finally {
@@ -518,8 +528,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                             }
                     }
                 }
-            }).start();
-
+            }.start();
 
             try {
                 mCamera.startPreview();
